@@ -19,6 +19,7 @@ _Create two deployment workflows using GitHub Actions and Microsoft Azure._
   Define terms and link to docs.github.com.
 -->
 
+
 ## Step 3: Spin up an environment based on labels
 
 _Nicely done! :heart:_
@@ -60,6 +61,7 @@ on:
 
 env:
   IMAGE_REGISTRY_URL: ghcr.io
+
   AZURE_RESOURCE_GROUP: cd-with-actions
   AZURE_APP_PLAN: actions-ttt-deployment
   AZURE_LOCATION: '"Central US"'
@@ -114,7 +116,6 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
       - name: Destroy Azure environment
         if: success()
         run: |
